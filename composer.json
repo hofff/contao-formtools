@@ -13,6 +13,12 @@
 			"email" : "oliver@hofff.com",
 			"homepage" : "https://hofff.com/",
 			"role" : "Developer"
+		},
+		{
+			"name" : "Nicky Hoff",
+			"email" : "nick@hofff.com",
+			"homepage" : "https://hofff.com/",
+			"role" : "Maintainer"
 		}
 	],
 	"support" : {
