@@ -1,0 +1,40 @@
+{
+	"name" : "hofff/contao-formtools",
+	"description" : "Various form utilities for Contao CMS.",
+	"keywords" : [
+		"form",
+		"contao"
+	],
+	"type" : "contao-module",
+	"homepage" : "https://hofff.com/",
+	"license" : "LGPL-3.0+",
+	"authors" : [{
+			"name" : "Oliver Hoff",
+			"email" : "oliver@hofff.com",
+			"homepage" : "https://hofff.com/",
+			"role" : "Developer"
+		}
+	],
+	"support" : {
+		"email" : "info@hofff.com",
+		"issues" : "https://github.com/hofff/contao-formtools/issues",
+		"source" : "https://github.com/hofff/contao-formtools"
+	},
+	"require" : {
+		"php" : ">=5.4",
+		"contao/core" : "~3.5",
+		"contao-community-alliance/composer-plugin" : "~2.0"
+	},
+	"autoload" : {
+		"psr-0" : {
+			"Hofff" : "src"
+		}
+	},
+	"extra" : {
+		"contao" : {
+			"sources" : {
+				"contao-module" : "system/modules/hofff_formtools"
+			}
+		}
+	}
+}
