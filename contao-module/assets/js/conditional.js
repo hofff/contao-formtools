@@ -4,7 +4,7 @@ jQuery(function($) {
 			var $subject = $(this),
 				$control = $conditionals.find($subject.data("conditional-control")),
 				value = $subject.data("conditional-value");
-			if(value && !$.isArray(value)) value = [ value ];
+			if(value && !$.isArray(value)) value = [ "" + value ];
 			$subject.toggleClass("invisible", value ? value.indexOf($control.val()) < 0 : !$control.length);
 		});
 	};
