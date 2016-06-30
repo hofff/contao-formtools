@@ -2,7 +2,7 @@
 [![Installations via composer per month](http://img.shields.io/packagist/dm/hofff/contao-formtools.svg?style=flat)](https://packagist.org/packages/hofff/contao-formtools)
 [![Installations via composer total](http://img.shields.io/packagist/dt/hofff/contao-formtools.svg?style=flat)](https://packagist.org/packages/hofff/contao-formtools)
 
-# Contao Extension: hofff.com - Formtoole
+# Contao Extension: hofff.com - Formtools
 
 This extensions provides some extended features for the Contao form generator.
 
