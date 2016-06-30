@@ -4,12 +4,12 @@
 
 # Contao Extension: hofff.com - Formtools
 
-This extensions provides some extended features for the Contao form generator.
+This extension provides some extended features for the Contao form generator.
 
 
 ## Features
 
-- in the content lement "Form" you can chosse your own mod_form_* template
+- in the content element "Form" you can choose your own mod_form_* template
 - add an optional help text per form field (you have to customize the form templates)
 
 
