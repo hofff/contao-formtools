@@ -28,6 +28,7 @@ class Form extends ContaoForm {
 
 			$key = substr($key, 16);
 			$this->$key = $value;
+			$this->objModel->$key = $value;
 		}
 	}
 
