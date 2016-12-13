@@ -1,45 +1,51 @@
 {
-	"name" : "hofff/contao-formtools",
-	"description" : "Various form utilities for Contao CMS.",
-	"keywords" : [
+	"name": "hofff/contao-formtools",
+	"description": "Various form utilities for Contao CMS.",
+	"keywords": [
 		"form",
 		"contao"
 	],
-	"type" : "contao-module",
-	"homepage" : "https://hofff.com/",
-	"license" : "LGPL-3.0+",
-	"authors" : [{
-			"name" : "Oliver Hoff",
-			"email" : "oliver@hofff.com",
-			"homepage" : "https://hofff.com/",
-			"role" : "Developer"
+	"type": "contao-module",
+	"homepage": "https://hofff.com/",
+	"license": "LGPL-3.0+",
+	"authors": [
+		{
+			"name": "Oliver Hoff",
+			"email": "oliver@hofff.com",
+			"homepage": "https://hofff.com/",
+			"role": "Developer"
 		},
 		{
-			"name" : "Nicky Hoff",
-			"email" : "nick@hofff.com",
-			"homepage" : "https://hofff.com/",
-			"role" : "Maintainer"
+			"name": "Nicky Hoff",
+			"email": "nick@hofff.com",
+			"homepage": "https://hofff.com/",
+			"role": "Maintainer"
 		}
 	],
-	"support" : {
-		"email" : "info@hofff.com",
-		"issues" : "https://github.com/hofff/contao-formtools/issues",
-		"source" : "https://github.com/hofff/contao-formtools"
+	"support": {
+		"email": "info@hofff.com",
+		"issues": "https://github.com/hofff/contao-formtools/issues",
+		"source": "https://github.com/hofff/contao-formtools"
 	},
-	"require" : {
-		"php" : ">=5.4",
-		"contao/core" : "~3.5",
-		"contao-community-alliance/composer-plugin" : "~2.0"
+	"config": {
+		"preferred-install": "dist"
 	},
-	"autoload" : {
-		"psr-0" : {
-			"Hofff" : "src"
+	"minimum-stability": "dev",
+	"prefer-stable": true,
+	"require": {
+		"php": ">=5.4",
+		"contao/core": "~3.5",
+		"contao-community-alliance/composer-plugin": "~2.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"Hofff\\Contao\\FormTools\\": "src/"
 		}
 	},
-	"extra" : {
-		"contao" : {
-			"sources" : {
-				"contao-module" : "system/modules/hofff_formtools"
+	"extra": {
+		"contao": {
+			"sources": {
+				"contao-module": "system/modules/hofff_formtools"
 			}
 		}
 	}
