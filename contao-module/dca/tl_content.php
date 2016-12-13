@@ -15,6 +15,7 @@ call_user_func(function() {
 
 		$name = 'hofff_formtools_' . $name;
 		$GLOBALS['TL_DCA']['tl_content']['fields'][$name] = $config;
+		$GLOBALS['TL_DCA']['tl_content']['fields'][$name]['eval']['mandatory'] = false;
 		$GLOBALS['TL_DCA']['tl_content']['palettes']['form'] .= ',' . $name;
 	}
 });
