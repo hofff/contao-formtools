@@ -2,7 +2,7 @@
 
 namespace Hofff\Contao\FormTools\Frontend;
 
-use Contao\Form as ContaoForm;
+use Form as ContaoForm;
 
 /**
  * @author Oliver Hoff <oliver@hofff.com>
