@@ -20,6 +20,12 @@
 			"email": "nick@hofff.com",
 			"homepage": "https://hofff.com/",
 			"role": "Maintainer"
+		},
+		{
+			"name": "Cliff Parnitzky",
+			"homepage": "https://hofff.com",
+			"email": "cliff@hofff.com",
+			"role": "Developer"
 		}
 	],
 	"support": {
