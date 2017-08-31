@@ -47,6 +47,9 @@
 			"sources": {
 				"contao-module": "system/modules/hofff_formtools"
 			}
+		},
+		"branch-alias": {
+			"dev-master": "2.0.x-dev"
 		}
 	}
 }
