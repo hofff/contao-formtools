@@ -20,6 +20,12 @@
 			"email": "nick@hofff.com",
 			"homepage": "https://hofff.com/",
 			"role": "Maintainer"
+		},
+		{
+			"name": "Cliff Parnitzky",
+			"homepage": "https://hofff.com",
+			"email": "cliff@hofff.com",
+			"role": "Developer"
 		}
 	],
 	"support": {
@@ -34,8 +40,8 @@
 	"prefer-stable": true,
 	"require": {
 		"php": ">=5.4",
-		"contao/core": "~3.5",
-		"contao-community-alliance/composer-plugin": "~2.0"
+		"contao/core-bundle":"~4.4",
+		"contao-community-alliance/composer-plugin":"~3.0"
 	},
 	"autoload": {
 		"psr-4": {
@@ -47,6 +53,9 @@
 			"sources": {
 				"contao-module": "system/modules/hofff_formtools"
 			}
+		},
+		"branch-alias": {
+			"dev-master": "2.0.x-dev"
 		}
 	}
 }

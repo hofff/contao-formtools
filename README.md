@@ -9,14 +9,15 @@ This extension provides some extended features for the Contao form generator.
 
 ## Features
 
-- in the content element "Form" you can choose your own mod_form_* template
-- add an optional help text per form field (you have to customize the form templates)
+- in the content element "Form"/module "Form" you can choose your own `mod_form_*` template
+- in the content element "Form"/module "Form" you can overwrite the `jumpto` page
+- in the content element "Form"/module "Form" you can overwrite the `recipient` for email notification
+- in each form field you can add an optional help text (you have to customize the form field templates for the output)
 
 
 ## Compatibility
 
-- min. Contao version: >= 3.5.0
-- max. Contao version: <  3.6.0
+- Contao version >= 4.4.0
 
 
 ## Dependency
