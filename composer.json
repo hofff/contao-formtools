@@ -5,9 +5,9 @@
 		"form",
 		"contao"
 	],
-	"type": "contao-module",
+	"type": "contao-bundle",
 	"homepage": "https://hofff.com/",
-	"license": "LGPL-3.0+",
+	"license": "LGPL-3.0-or-later",
 	"authors": [
 		{
 			"name": "Oliver Hoff",
@@ -26,6 +26,12 @@
 			"homepage": "https://hofff.com",
 			"email": "cliff@hofff.com",
 			"role": "Developer"
+		},
+		{
+			"name": "David Molineus",
+			"homepage": "https://hofff.com",
+			"email": "david@hofff.com",
+			"role": "Developer"
 		}
 	],
 	"support": {
@@ -39,9 +45,8 @@
 	"minimum-stability": "dev",
 	"prefer-stable": true,
 	"require": {
-		"php": ">=5.4",
-		"contao/core-bundle":"~4.4",
-		"contao-community-alliance/composer-plugin":"~3.0"
+		"php": ">=7.1",
+		"contao/core-bundle":"~4.4"
 	},
 	"autoload": {
 		"psr-4": {
@@ -49,13 +54,10 @@
 		}
 	},
 	"extra": {
-		"contao": {
-			"sources": {
-				"contao-module": "system/modules/hofff_formtools"
-			}
-		},
+		"contao-manager-plugin": "Hofff\\Contao\\FormTools\\ContaoManager\\Plugin",
 		"branch-alias": {
-			"dev-master": "2.0.x-dev"
+			"dev-master": "2.0.x-dev",
+			"dev-develop": "3.0.x-dev"
 		}
 	}
 }
