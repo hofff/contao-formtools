@@ -13,7 +13,8 @@ This extension provides some extended features for the Contao form generator.
 - in the content element "Form"/module "Form" you can overwrite the `jumpto` page
 - in the content element "Form"/module "Form" you can overwrite the `recipient` for email notification
 - in each form field you can add an optional help text (you have to customize the form field templates for the output)
-
+- add custom error/success message before form (useful when no page redirect is defined)
+- auto scroll to error element
 
 ## Compatibility
 
