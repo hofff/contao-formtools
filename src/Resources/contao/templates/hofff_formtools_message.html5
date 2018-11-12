@@ -1,0 +1,3 @@
+<div class="form-message form-message-<?= $this->type ?>">
+    <?= $this->message ?>
+</div>

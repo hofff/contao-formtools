@@ -16,7 +16,7 @@ final class AddScrollToScriptListener
         'offset'   => 100,
     ];
 
-    public function onParseTemplate(Template $template): void
+    public function __invoke(Template $template): void
     {
         if (!$this->match($template)) {
             return;
@@ -44,7 +44,7 @@ final class AddScrollToScriptListener
 
     private function generateScrollToError(Template $formTemplate): string
     {
-        $template = new FrontendTemplate('formtools_error_scroll');
+        $template = new FrontendTemplate('hofff_formtools_error_scroll');
         $scrollTo = array_merge(self::DEFAULT_SCROLLTO_OPTIONS, (array) $formTemplate->formToolsScrollTo);
 
         $template->setData($scrollTo);
