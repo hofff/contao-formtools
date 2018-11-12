@@ -6,7 +6,7 @@ namespace Hofff\Contao\FormTools\EventListener\Hook;
 
 use Contao\FrontendTemplate;
 use Contao\Template;
-use function substr;
+use function strpos;
 
 final class AddScrollToScriptListener
 {
@@ -31,11 +31,11 @@ final class AddScrollToScriptListener
             return false;
         }
 
-        if (substr($template->getName(), 12) !== 'form_wrapper') {
+        if (strpos($template->getName(), 'form_wrapper') !== 0) {
             return false;
         }
 
-        if (!$template->hasErrors) {
+        if (!$template->hasError) {
             return false;
         }
 
