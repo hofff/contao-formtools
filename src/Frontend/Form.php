@@ -16,8 +16,6 @@ class Form extends ContaoForm {
 	public function __construct($element, $column = 'main') {
 		parent::__construct($element, $column);
 
-		TL_MODE == 'FE' && strlen($this->objParent->customTpl) && $this->strTemplate = $this->objParent->customTpl;
-
 		foreach($this->objParent->row() as $key => $value) {
 			if(empty($value)) {
 				continue;
