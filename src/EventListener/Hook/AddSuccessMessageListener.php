@@ -25,7 +25,7 @@ final class AddSuccessMessageListener
         $this->session = $session;
     }
 
-    public function __invoke(array $submitted, array $data, array $files, array $labels, Form $form): void
+    public function __invoke(array $submitted, array $data, ?array $files, array $labels, Form $form): void
     {
         if (!$form->hofff_formtools_addSuccess) {
             return;

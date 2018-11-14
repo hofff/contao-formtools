@@ -13,5 +13,8 @@
         <service id="Hofff\Contao\FormTools\EventListener\Hook\PrependFormMessagesListener" public="true">
             <argument type="service" id="session" />
         </service>
+        <service id="Hofff\Contao\FormTools\EventListener\Hook\AddScrollToScriptListener" public="true">
+            <argument type="service" id="session" />
+        </service>
     </services>
 </container>

@@ -6,15 +6,24 @@ namespace Hofff\Contao\FormTools\EventListener\Hook;
 
 use Contao\FrontendTemplate;
 use Contao\Template;
+use Symfony\Component\HttpFoundation\Session\Session;
 use function strpos;
 
 final class AddScrollToScriptListener
 {
     private const DEFAULT_SCROLLTO_OPTIONS = [
-        'element'  => 'p.error',
+        'element'  => 'div.form-message,p.error',
         'duration' => 1000,
         'offset'   => 100,
     ];
+
+    /** @var Session */
+    private $session;
+
+    public function __construct(Session $session)
+    {
+        $this->session = $session;
+    }
 
     public function __invoke(Template $template): void
     {
@@ -35,6 +44,10 @@ final class AddScrollToScriptListener
             return false;
         }
 
+        if ($this->session->getFlashBag()->has('hofff_formtools_' . $template->id)) {
+            return true;
+        }
+
         if (!$template->hasError) {
             return false;
         }
@@ -44,7 +57,7 @@ final class AddScrollToScriptListener
 
     private function generateScrollToError(Template $formTemplate): string
     {
-        $template = new FrontendTemplate('hofff_formtools_error_scroll');
+        $template = new FrontendTemplate('hofff_formtools_scroll');
         $scrollTo = array_merge(self::DEFAULT_SCROLLTO_OPTIONS, (array) $formTemplate->formToolsScrollTo);
 
         $template->setData($scrollTo);
