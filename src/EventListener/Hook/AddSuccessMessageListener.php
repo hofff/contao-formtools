@@ -27,7 +27,7 @@ final class AddSuccessMessageListener
 
     public function __invoke(array $submitted, array $data, ?array $files, array $labels, Form $form): void
     {
-        if (!$form->hofff_formtools_addSuccess) {
+        if (!$form->hofff_formtools_addSuccess || $form->jumpTo) {
             return;
         }
 
