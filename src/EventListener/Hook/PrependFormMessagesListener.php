@@ -30,6 +30,6 @@ final class PrependFormMessagesListener
             return $buffer;
         }
 
-        return implode('\n', $flashBag->get($key)) . $buffer;
+        return implode("\n", $flashBag->get($key)) . $buffer;
     }
 }

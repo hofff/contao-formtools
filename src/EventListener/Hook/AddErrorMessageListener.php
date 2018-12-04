@@ -7,6 +7,7 @@ namespace Hofff\Contao\FormTools\EventListener\Hook;
 use Contao\FrontendTemplate;
 use Contao\Template;
 use Symfony\Component\HttpFoundation\Session\Session;
+use function array_key_exists;
 
 final class AddErrorMessageListener
 {
@@ -14,6 +15,8 @@ final class AddErrorMessageListener
      * @var Session
      */
     private $session;
+
+    private $cache = [];
 
     /**
      * AddSuccessMessageListener constructor.
@@ -62,6 +65,13 @@ final class AddErrorMessageListener
         if (!$template->hofff_formtools_addError) {
             return false;
         }
+
+        // FIXME: Temporary workaround for https://github.com/contao/contao/issues/214
+        if (array_key_exists($template->id, $this->cache)) {
+            return false;
+        }
+
+        $this->cache[$template->id] = null;
 
         return true;
     }
