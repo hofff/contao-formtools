@@ -1,8 +1,6 @@
 <?php
 
-$GLOBALS['TL_DCA']['tl_module']['palettes']['form']
-	.= ';{template_legend:hide},customTpl'
-	. ';{hofff_formtools_overwrite_legend}';
+$GLOBALS['TL_DCA']['tl_module']['palettes']['form'] .= ';{hofff_formtools_overwrite_legend}';
 
 call_user_func(function() {
 	\Contao\System::loadLanguageFile('tl_form');
