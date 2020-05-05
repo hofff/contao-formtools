@@ -1,0 +1,12 @@
+# EditorConfig is awesome: http://EditorConfig.org
+
+[*.{html5,twig}]
+indent_style = space
+indent_size = 2
+
+[*.{json,yaml,yml}]
+indent_style = space
+indent_size = 4
+
+[package.json]
+indent_size = 2
