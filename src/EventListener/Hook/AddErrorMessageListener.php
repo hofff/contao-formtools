@@ -4,11 +4,14 @@ declare(strict_types=1);
 
 namespace Hofff\Contao\FormTools\EventListener\Hook;
 
+use Contao\CoreBundle\ServiceAnnotation\Hook;
 use Contao\FrontendTemplate;
 use Contao\Template;
 use Symfony\Component\HttpFoundation\Session\Session;
+
 use function array_key_exists;
 
+/** @Hook("parseTemplate") */
 final class AddErrorMessageListener
 {
     /**

@@ -4,9 +4,15 @@ declare(strict_types=1);
 
 namespace Hofff\Contao\FormTools\EventListener\Hook;
 
+use Contao\CoreBundle\ServiceAnnotation\Hook;
 use Symfony\Component\HttpFoundation\Session\Session;
+
 use function implode;
 
+/**
+ * @Hook("getFrontendModule")
+ * @Hook("getContentElement")
+ */
 final class PrependFormMessagesListener
 {
     /** @var Session */
