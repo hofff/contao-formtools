@@ -16,6 +16,7 @@
         <service id="Hofff\Contao\FormTools\EventListener\Hook\AddScrollToScriptListener" public="true">
             <argument type="service" id="session" />
         </service>
+        <service id="Hofff\Contao\FormTools\EventListener\Hook\FormFieldAttributesListener" public="true" />
         <service id="Hofff\Contao\FormTools\EventListener\Dca\FormFieldDcaListener" />
     </services>
 </container>
