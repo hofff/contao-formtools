@@ -1,19 +1,30 @@
 <?php
 
-$GLOBALS['TL_DCA']['tl_content']['palettes']['form'] .= ';{hofff_formtools_overwrite_legend}';
+declare(strict_types=1);
 
-call_user_func(function() {
-	\Contao\System::loadLanguageFile('tl_form');
-	\Contao\Controller::loadDataContainer('tl_form');
+use Contao\CoreBundle\DataContainer\PaletteManipulator;
+use Contao\System;
+use Contao\Controller;
 
-	foreach($GLOBALS['TL_DCA']['tl_form']['fields'] as $name => $config) {
-		if(empty($config['hofff_formtools_overwriteable'])) {
-			continue;
-		}
+call_user_func(function () {
+    System::loadLanguageFile('tl_form');
+    Controller::loadDataContainer('tl_form');
 
-		$name = 'hofff_formtools_' . $name;
-		$GLOBALS['TL_DCA']['tl_content']['fields'][$name] = $config;
-		$GLOBALS['TL_DCA']['tl_content']['fields'][$name]['eval']['mandatory'] = false;
-		$GLOBALS['TL_DCA']['tl_content']['palettes']['form'] .= ',' . $name;
-	}
+    $manipulator = PaletteManipulator::create()
+        ->addLegend('hofff_formtools_overwrite_legend', 'config_legend');
+
+    foreach ($GLOBALS['TL_DCA']['tl_form']['fields'] as $name => $config) {
+        if (empty($config['hofff_formtools_overwriteable'])) {
+            continue;
+        }
+
+        $name = 'hofff_formtools_' . $name;
+
+        $GLOBALS['TL_DCA']['tl_content']['fields'][$name]                      = $config;
+        $GLOBALS['TL_DCA']['tl_content']['fields'][$name]['eval']['mandatory'] = false;
+
+        $manipulator->addField($name, 'hofff_formtools_overwrite_legend', PaletteManipulator::POSITION_APPEND);
+    }
+
+    $manipulator->applyToPalette('form', 'tl_content');
 });

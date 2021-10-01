@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace Hofff\Contao\FormTools\EventListener\Hook;
 
+use Contao\CoreBundle\ServiceAnnotation\Hook;
 use Contao\Form;
 use Contao\FrontendTemplate;
 use Symfony\Component\HttpFoundation\Session\Session;
 
+/** @Hook("processFormData") */
 final class AddSuccessMessageListener
 {
     /**
