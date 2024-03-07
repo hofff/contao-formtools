@@ -12,12 +12,13 @@ use Hofff\Contao\FormTools\HofffContaoFormToolsBundle;
 
 final class Plugin implements BundlePluginInterface
 {
+    /** {@inheritDoc} */
     public function getBundles(ParserInterface $parser): array
     {
         return [
             BundleConfig::create(HofffContaoFormToolsBundle::class)
                 ->setLoadAfter([ContaoCoreBundle::class])
-                ->setReplace(['hofff_formtools'])
+                ->setReplace(['hofff_formtools']),
         ];
     }
 }

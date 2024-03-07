@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 $GLOBALS['TL_LANG']['tl_form']['messages_legend'] = 'Rückmeldungen';
 
 $GLOBALS['TL_LANG']['tl_form']['hofff_formtools_addSuccess'][0] = 'Erfolgsmeldung hinzufügen';

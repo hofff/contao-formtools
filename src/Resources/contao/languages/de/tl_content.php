@@ -1,4 +1,5 @@
 <?php
 
-$GLOBALS['TL_LANG']['tl_content']['hofff_formtools_overwrite_legend']
-    = 'Formular-Einstellungen überschreiben';
+declare(strict_types=1);
+
+$GLOBALS['TL_LANG']['tl_content']['hofff_formtools_overwrite_legend'] = 'Formular-Einstellungen überschreiben';

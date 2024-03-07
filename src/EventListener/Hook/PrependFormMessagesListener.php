@@ -4,35 +4,32 @@ declare(strict_types=1);
 
 namespace Hofff\Contao\FormTools\EventListener\Hook;
 
-use Contao\CoreBundle\ServiceAnnotation\Hook;
-use Symfony\Component\HttpFoundation\Session\Session;
+use Contao\ContentModel;
+use Contao\CoreBundle\DependencyInjection\Attribute\AsHook;
+use Contao\ModuleModel;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 use function implode;
 
-/**
- * @Hook("getFrontendModule")
- * @Hook("getContentElement")
- */
+#[AsHook('getFrontendModule')]
+#[AsHook('getContentElement')]
 final class PrependFormMessagesListener
 {
-    /** @var Session */
-    private $session;
-
-    public function __construct(Session $session)
+    public function __construct(private readonly RequestStack $requestStack)
     {
-        $this->session = $session;
     }
 
-    public function __invoke($element, string $buffer): string
+    public function __invoke(ContentModel|ModuleModel $element, string $buffer): string
     {
         if ($element->type !== 'form') {
             return $buffer;
         }
 
-        $flashBag = $this->session->getFlashBag();
+        /** @psalm-suppress UndefinedInterfaceMethod */
+        $flashBag = $this->requestStack->getCurrentRequest()?->getSession()->getFlashBag();
         $key      = 'hofff_formtools_' . $element->form;
 
-        if (!$flashBag->has($key)) {
+        if (! $flashBag || ! $flashBag->has($key)) {
             return $buffer;
         }
 

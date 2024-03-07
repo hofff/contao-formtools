@@ -4,14 +4,16 @@ declare(strict_types=1);
 
 namespace Hofff\Contao\FormTools\EventListener\Hook;
 
-use Contao\CoreBundle\ServiceAnnotation\Hook;
+use Contao\CoreBundle\DependencyInjection\Attribute\AsHook;
+use Contao\CoreBundle\Security\Authentication\Token\TokenChecker;
 use Contao\FrontendTemplate;
 use Contao\Template;
-use Symfony\Component\HttpFoundation\Session\Session;
+use Symfony\Component\HttpFoundation\RequestStack;
 
-use function strpos;
+use function array_merge;
+use function str_starts_with;
 
-/** @Hook("parseTemplate") */
+#[AsHook('parseTemplate')]
 final class AddScrollToScriptListener
 {
     private const DEFAULT_SCROLLTO_OPTIONS = [
@@ -20,17 +22,16 @@ final class AddScrollToScriptListener
         'offset'   => 100,
     ];
 
-    /** @var Session */
-    private $session;
-
-    public function __construct(Session $session)
-    {
-        $this->session = $session;
+    public function __construct(
+        private readonly RequestStack $requestStack,
+        private readonly TokenChecker $tokenChecker,
+    ) {
     }
 
+    /** @SuppressWarnings(PHPMD.Superglobals) */
     public function __invoke(Template $template): void
     {
-        if (!$this->match($template)) {
+        if (! $this->match($template)) {
             return;
         }
 
@@ -39,23 +40,21 @@ final class AddScrollToScriptListener
 
     private function match(Template $template): bool
     {
-        if (TL_MODE !== 'FE') {
+        if (! $this->tokenChecker->isFrontendFirewall()) {
             return false;
         }
 
-        if (strpos($template->getName(), 'form_wrapper') !== 0) {
+        if (! str_starts_with($template->getName(), 'form_wrapper')) {
             return false;
         }
 
-        if ($this->session->getFlashBag()->has('hofff_formtools_' . $template->id)) {
+        $request = $this->requestStack->getCurrentRequest();
+        /** @psalm-suppress UndefinedInterfaceMethod */
+        if ($request?->getSession()->getFlashBag()->has('hofff_formtools_' . $template->id)) {
             return true;
         }
 
-        if (!$template->hasError) {
-            return false;
-        }
-
-        return true;
+        return ! $template->hasError;
     }
 
     private function generateScrollToError(Template $formTemplate): string

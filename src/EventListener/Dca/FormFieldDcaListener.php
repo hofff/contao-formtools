@@ -5,13 +5,14 @@ declare(strict_types=1);
 namespace Hofff\Contao\FormTools\EventListener\Dca;
 
 use Contao\CoreBundle\DataContainer\PaletteManipulator;
-use Contao\CoreBundle\ServiceAnnotation\Callback;
+use Contao\CoreBundle\DependencyInjection\Attribute\AsCallback;
 
 use function is_string;
 
 final class FormFieldDcaListener
 {
-    /** @Callback(table="tl_form_field", target="config.onload") */
+    /** @SuppressWarnings(PHPMD.Superglobals) */
+    #[AsCallback('tl_form_field', 'config.onload')]
     public function onLoad(): void
     {
         $palettes    = $GLOBALS['TL_DCA']['tl_form_field']['palettes'] ?? [];
@@ -21,7 +22,7 @@ final class FormFieldDcaListener
             ->addField('hofff_formtools_attributes', 'expert_legend', PaletteManipulator::POSITION_APPEND);
 
         foreach ($palettes as $key => $palette) {
-            if ($key === '__selector__' || !is_string($palette)) {
+            if ($key === '__selector__' || ! is_string($palette)) {
                 continue;
             }
 

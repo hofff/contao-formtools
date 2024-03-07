@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
+use Contao\Controller;
 use Contao\CoreBundle\DataContainer\PaletteManipulator;
 use Contao\System;
-use Contao\Controller;
 
-call_user_func(function () {
+call_user_func(static function (): void {
     System::loadLanguageFile('tl_form');
     Controller::loadDataContainer('tl_form');
 

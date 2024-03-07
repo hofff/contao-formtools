@@ -12,12 +12,12 @@ PaletteManipulator::create()
     ->addLegend(
         'messages_legend',
         'template_legend',
-        PaletteManipulator::POSITION_BEFORE
+        PaletteManipulator::POSITION_BEFORE,
     )
     ->addField(
         ['hofff_formtools_addSuccess', 'hofff_formtools_addError'],
         'messages_legend',
-        PaletteManipulator::POSITION_APPEND
+        PaletteManipulator::POSITION_APPEND,
     )
     ->applyToPalette('default', 'tl_form');
 

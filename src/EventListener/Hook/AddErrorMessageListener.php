@@ -4,36 +4,30 @@ declare(strict_types=1);
 
 namespace Hofff\Contao\FormTools\EventListener\Hook;
 
-use Contao\CoreBundle\ServiceAnnotation\Hook;
+use Contao\CoreBundle\DependencyInjection\Attribute\AsHook;
+use Contao\CoreBundle\Security\Authentication\Token\TokenChecker;
 use Contao\FrontendTemplate;
 use Contao\Template;
-use Symfony\Component\HttpFoundation\Session\Session;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 use function array_key_exists;
+use function str_starts_with;
 
-/** @Hook("parseTemplate") */
+#[AsHook('parseTemplate')]
 final class AddErrorMessageListener
 {
-    /**
-     * @var Session
-     */
-    private $session;
+    /** @var array<string|int, null> */
+    private array $cache = [];
 
-    private $cache = [];
-
-    /**
-     * AddSuccessMessageListener constructor.
-     *
-     * @param Session $session
-     */
-    public function __construct(Session $session)
-    {
-        $this->session = $session;
+    public function __construct(
+        private readonly RequestStack $requestStack,
+        private readonly TokenChecker $tokenChecker,
+    ) {
     }
 
     public function __invoke(Template $formTemplate): void
     {
-        if (!$this->match($formTemplate)) {
+        if (! $this->match($formTemplate)) {
             return;
         }
 
@@ -41,31 +35,32 @@ final class AddErrorMessageListener
         $template->setData(
             [
                 'type' => 'error',
-                'message' => $formTemplate->hofff_formtools_error
-            ]
+                'message' => $formTemplate->hofff_formtools_error,
+            ],
         );
 
-        $this->session->getFlashBag()->add(
+        /** @psalm-suppress UndefinedInterfaceMethod */
+        $this->requestStack->getCurrentRequest()?->getSession()->getFlashBag()->add(
             'hofff_formtools_' . $formTemplate->id,
-            $template->parse()
+            $template->parse(),
         );
     }
 
     private function match(Template $template): bool
     {
-        if (TL_MODE !== 'FE') {
+        if (! $this->tokenChecker->isFrontendFirewall()) {
             return false;
         }
 
-        if (strpos($template->getName(), 'form_wrapper') !== 0) {
+        if (! str_starts_with($template->getName(), 'form_wrapper')) {
             return false;
         }
 
-        if (!$template->hasError) {
+        if (! $template->hasError) {
             return false;
         }
 
-        if (!$template->hofff_formtools_addError) {
+        if (! $template->hofff_formtools_addError) {
             return false;
         }
 

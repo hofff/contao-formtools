@@ -1,71 +1,83 @@
 {
-    "name": "hofff/contao-formtools",
-    "description": "Various form utilities for Contao CMS.",
-    "keywords": [
-        "form",
-        "contao"
-    ],
-    "type": "contao-bundle",
-    "homepage": "https://www.hofff.com/",
-    "license": "LGPL-3.0-or-later",
-    "authors": [
-        {
-            "name": "David Molineus",
-            "homepage": "https://www.hofff.com",
-            "email": "david@hofff.com",
-            "role": "Developer"
-        },
-        {
-            "name": "Nicky Hoff",
-            "email": "nick@hofff.com",
-            "homepage": "https://www.hofff.com/",
-            "role": "Manager"
-        },
-        {
-            "name": "Cliff Parnitzky",
-            "homepage": "https://www.hofff.com",
-            "email": "cliff@hofff.com",
-            "role": "Developer"
-        },
-        {
-            "name": "Oliver Hoff",
-            "email": "oliver@hofff.com",
-            "homepage": "https://www.hofff.com/",
-            "role": "Developer"
-        }
-    ],
-    "support": {
-        "email": "info@hofff.com",
-        "issues": "https://github.com/hofff/contao-formtools/issues",
-        "source": "https://github.com/hofff/contao-formtools"
+  "name": "hofff/contao-formtools",
+  "description": "Various form utilities for Contao CMS.",
+  "license": "LGPL-3.0-or-later",
+  "type": "contao-bundle",
+  "keywords": [
+    "form",
+    "contao"
+  ],
+  "authors": [
+    {
+      "name": "David Molineus",
+      "email": "david@hofff.com",
+      "homepage": "https://www.hofff.com",
+      "role": "Developer"
     },
-    "config": {
-        "preferred-install": "dist"
+    {
+      "name": "Nicky Hoff",
+      "email": "nick@hofff.com",
+      "homepage": "https://www.hofff.com/",
+      "role": "Manager"
     },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "require": {
-        "php": ">=7.1",
-        "ext-json": "*",
-        "contao/core-bundle": "^4.9"
+    {
+      "name": "Cliff Parnitzky",
+      "email": "cliff@hofff.com",
+      "homepage": "https://www.hofff.com",
+      "role": "Developer"
     },
-    "require-dev": {
-        "contao/manager-plugin": "^2.11"
-    },
-    "conflict": {
-        "contao/manager-plugin": "<2.11 || >= 3.0"
-    },
-    "autoload": {
-        "psr-4": {
-            "Hofff\\Contao\\FormTools\\": "src/"
-        }
-    },
-    "extra": {
-        "contao-manager-plugin": "Hofff\\Contao\\FormTools\\ContaoManager\\Plugin",
-        "branch-alias": {
-            "dev-master": "3.0.x-dev",
-            "dev-develop": "3.1.x-dev",
-            "dev-support/2.x": "2.0.x-dev"
-        }
+    {
+      "name": "Oliver Hoff",
+      "email": "oliver@hofff.com",
+      "homepage": "https://www.hofff.com/",
+      "role": "Developer"
     }
+  ],
+  "homepage": "https://www.hofff.com/",
+  "support": {
+    "email": "info@hofff.com",
+    "issues": "https://github.com/hofff/contao-formtools/issues",
+    "source": "https://github.com/hofff/contao-formtools"
+  },
+  "require": {
+    "php": "^8.1",
+    "ext-json": "*",
+    "contao/core-bundle": "^4.13 || ^5.3",
+    "symfony/config": "^5.4 || ^6.4",
+    "symfony/dependency-injection": "^5.4 || ^6.4",
+    "symfony/http-foundation": "^5.4 || ^6.4",
+    "symfony/http-kernel": "^5.4 || ^6.4"
+  },
+  "require-dev": {
+    "contao/manager-plugin": "^2.11",
+    "doctrine/coding-standard": "^12.0",
+    "phpcq/runner-bootstrap": "^1.0@dev"
+  },
+  "conflict": {
+    "contao/manager-plugin": "<2.11 || >= 3.0"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "autoload": {
+    "psr-4": {
+      "Hofff\\Contao\\FormTools\\": "src/"
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "contao-components/installer": true,
+      "contao/manager-plugin": true,
+      "dealerdirect/phpcodesniffer-composer-installer": true,
+      "php-http/discovery": true
+    },
+    "preferred-install": "dist"
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-develop": "3.2.x-dev",
+      "dev-master": "3.1.x-dev",
+      "dev-support/2.x": "2.0.x-dev"
+    },
+    "contao-manager-plugin": "Hofff\\Contao\\FormTools\\ContaoManager\\Plugin"
+  }
 }

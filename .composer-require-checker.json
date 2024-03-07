@@ -1,0 +1,20 @@
+{
+  "symbol-whitelist": [
+    "null", "true", "false",
+    "static", "self", "parent",
+    "array", "string", "int", "float", "bool", "iterable", "callable", "void", "object",
+    "Contao\\ManagerPlugin\\Bundle\\BundlePluginInterface",
+    "Contao\\ManagerPlugin\\Bundle\\Config\\BundleConfig",
+    "Contao\\ManagerPlugin\\Bundle\\Parser\\ParserInterface",
+    "Contao\\ManagerPlugin\\Routing\\RoutingPluginInterface",
+    "Contao\\CalendarBundle\\ContaoCalendarBundle",
+    "Contao\\FaqBundle\\ContaoFaqBundle",
+    "Contao\\NewsBundle\\ContaoNewsBundle",
+    "Contao\\CalendarEventsModel",
+    "Contao\\Events",
+    "Contao\\FaqCategoryModel",
+    "Contao\\FaqModel",
+    "Contao\\NewsModel",
+    "Contao\\News"
+  ]
+}
