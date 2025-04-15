@@ -27,12 +27,12 @@ final class PrependFormMessagesListener
 
         /** @psalm-suppress UndefinedInterfaceMethod */
         $request  = $this->requestStack->getCurrentRequest();
-        $flashBag = $request?->getSession()->getFlashBag();
         if (! $request?->getSession()->isStarted()) {
             return $buffer;
         }
 
-        $key = 'hofff_formtools_' . $element->form;
+        $flashBag = $request?->getSession()->getFlashBag();
+        $key      = 'hofff_formtools_' . $element->form;
 
         if (! $flashBag || ! $flashBag->has($key)) {
             return $buffer;
