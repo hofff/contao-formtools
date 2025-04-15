@@ -49,6 +49,10 @@ final class AddScrollToScriptListener
         }
 
         $request = $this->requestStack->getCurrentRequest();
+        if (! $request?->getSession()->isStarted()) {
+            return false;
+        }
+
         /** @psalm-suppress UndefinedInterfaceMethod */
         if ($request?->getSession()->getFlashBag()->has('hofff_formtools_' . $template->id)) {
             return true;
