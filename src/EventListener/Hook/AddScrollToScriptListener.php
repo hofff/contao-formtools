@@ -18,7 +18,6 @@ final class AddScrollToScriptListener
 {
     private const DEFAULT_SCROLLTO_OPTIONS = [
         'element'  => 'div.form-message,p.error',
-        'duration' => 1000,
         'offset'   => 100,
     ];
 
@@ -49,16 +48,16 @@ final class AddScrollToScriptListener
         }
 
         $request = $this->requestStack->getCurrentRequest();
-        if (! $request?->getSession()->isStarted()) {
+        if (! $request) {
             return false;
         }
 
         /** @psalm-suppress UndefinedInterfaceMethod */
-        if ($request?->getSession()->getFlashBag()->has('hofff_formtools_' . $template->id)) {
+        if ($request->getSession()->isStarted() && $request->getSession()->getFlashBag()->has('hofff_formtools_' . $template->id)) {
             return true;
         }
 
-        return ! $template->hasError;
+        return $template->hasError;
     }
 
     private function generateScrollToError(Template $formTemplate): string
