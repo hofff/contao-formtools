@@ -1,11 +1,14 @@
 <script>
-    (function($) {
-        $(document).ready(function () {
-            var r = $('<?= $this->element ?>');
-            if(!r.length) return;
-            $("html, body").stop(true).animate({
-                scrollTop: Math.max(0, r.offset().top - <?= $this->offset ?>)
-            }, <?= $this->duration ?>);
-        });
-    })(jQuery);
+  (function() {
+    document.addEventListener('DOMContentLoaded', function() {
+      const element = document.querySelector('<?= $this->element ?>');
+      if (!element) return;
+
+      // Setze den Scroll-Offset
+      window.scrollTo({
+        top: Math.max(0, element.getBoundingClientRect().top + window.pageYOffset - <?= $this->offset ?>),
+        behavior: 'smooth'
+      });
+    });
+  })();
 </script>
