@@ -57,7 +57,7 @@ final class AddScrollToScriptListener
             return true;
         }
 
-        return $template->hasError;
+        return (bool) $template->hasError;
     }
 
     private function generateScrollToError(Template $formTemplate): string
