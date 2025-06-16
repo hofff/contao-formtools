@@ -16,6 +16,7 @@ use function str_starts_with;
 #[AsHook('parseTemplate')]
 final class AddScrollToScriptListener
 {
+    // phpcs:ignore SlevomatCodingStandard.TypeHints.ClassConstantTypeHint.MissingNativeTypeHint
     private const DEFAULT_SCROLLTO_OPTIONS = [
         'element'  => 'div.form-message,p.error',
         'offset'   => 100,

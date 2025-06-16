@@ -1,0 +1,45 @@
+{
+  "receipts": [
+    "projects/contao-bundle/4.13-5.3"
+  ],
+  "config": {
+    "phpConstraint": "^8.1"
+  },
+  "tools": {
+    "composer": {
+      "namespace": "Hofff\\Contao\\FormTools"
+    },
+    "phpcq": {
+      "plugins": {
+        "phpunit": false,
+        "rector": false
+      },
+      "phpcpd": {
+        "tasks": {
+          "phpcpd": {
+            "config": {
+              "exclude": [
+              ]
+            }
+          }
+        }
+      },
+      "presets": {
+        "composer-require-checker": {
+          "tasks": {
+            "composer-require-checker": {
+              "config":{
+                "config_file": ".composer-require-checker.json"
+              }
+            }
+          }
+        }
+      }
+    },
+    "psalm": {
+      "configuration": {
+        "errorLevel": "3"
+      }
+    }
+  }
+}
