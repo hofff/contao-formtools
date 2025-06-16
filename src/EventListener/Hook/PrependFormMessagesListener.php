@@ -8,6 +8,7 @@ use Contao\ContentModel;
 use Contao\CoreBundle\DependencyInjection\Attribute\AsHook;
 use Contao\ModuleModel;
 use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 use function implode;
 
@@ -26,15 +27,20 @@ final class PrependFormMessagesListener
         }
 
         /** @psalm-suppress UndefinedInterfaceMethod */
-        $request  = $this->requestStack->getCurrentRequest();
-        if (! $request?->getSession()->isStarted()) {
+        $request = $this->requestStack->getCurrentRequest();
+        if (! $request) {
             return $buffer;
         }
 
-        $flashBag = $request?->getSession()->getFlashBag();
+        $session = $request->getSession();
+        if (! $session instanceof Session) {
+            return $buffer;
+        }
+
+        $flashBag = $session->getFlashBag();
         $key      = 'hofff_formtools_' . $element->form;
 
-        if (! $flashBag || ! $flashBag->has($key)) {
+        if (! $flashBag->has($key)) {
             return $buffer;
         }
 

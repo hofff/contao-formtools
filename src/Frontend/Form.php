@@ -12,7 +12,10 @@ use Contao\ModuleModel;
 use function strncmp;
 use function substr;
 
-/** @psalm-suppress PropertyNotSetInConstructor */
+/**
+ * @psalm-suppress PropertyNotSetInConstructor
+ * @psalm-suppress ClassMustBeFinal
+ */
 class Form extends ContaoForm
 {
     public function __construct(ContentModel|ModuleModel|FormModel $element, string $column = 'main')
