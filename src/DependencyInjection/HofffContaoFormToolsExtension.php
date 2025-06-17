@@ -22,5 +22,6 @@ final class HofffContaoFormToolsExtension extends Extension
         );
 
         $loader->load('listener.xml');
+        $loader->load('services.xml');
     }
 }
