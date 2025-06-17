@@ -7,7 +7,7 @@
     <arg name="colors"/>
 
     <!-- Required for the SlevomatCodingStandard which utilizes composer dependencies -->
-    <autoload>vendor/autoload.php</autoload>
+    <autoload>.phpcq/plugins/doctrine-coding-standard/vendor/autoload.php</autoload>
 
     <!-- Ignore warnings, show progress of the run and show sniff names -->
     <arg value="nps"/>

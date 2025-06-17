@@ -52,7 +52,10 @@ final class AddErrorMessageListener
             return false;
         }
 
-        if (! str_starts_with($template->getName(), 'form_wrapper')) {
+        if (
+            ! str_starts_with($template->getName(), 'form_wrapper')
+            && ! str_starts_with($template->getName(), 'form_inline')
+        ) {
             return false;
         }
 
