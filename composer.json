@@ -75,9 +75,9 @@
   },
   "extra": {
     "branch-alias": {
-      "dev-develop": "4.0.x-dev",
-      "dev-master": "3.3.x-dev",
-      "dev-support/2.x": "2.0.x-dev"
+      "dev-develop": "4.1.x-dev",
+      "dev-master": "4.0.x-dev",
+      "dev-support/3.x": "3.3.x-dev"
     },
     "contao-manager-plugin": "Hofff\\Contao\\FormTools\\ContaoManager\\Plugin"
   }
