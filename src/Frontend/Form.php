@@ -7,12 +7,15 @@ namespace Hofff\Contao\FormTools\Frontend;
 use Contao\ContentModel;
 use Contao\Form as ContaoForm;
 use Contao\FormModel;
+use Contao\Model;
 use Contao\ModuleModel;
 
 use function strncmp;
 use function substr;
 
 /**
+ * @property FormModel|null $objModel
+ * @property Model|null     $objParent
  * @psalm-suppress PropertyNotSetInConstructor
  * @psalm-suppress ClassMustBeFinal
  */
@@ -22,10 +25,10 @@ class Form extends ContaoForm
     {
         parent::__construct($element, $column);
 
-        /**
-         * @psalm-suppress UninitializedProperty
-         * @psalm-suppress PossiblyNullReference
-         */
+        if ($this->objParent === null) {
+            return;
+        }
+
         foreach ($this->objParent->row() as $key => $value) {
             if (empty($value)) {
                 continue;
@@ -35,10 +38,10 @@ class Form extends ContaoForm
                 continue;
             }
 
-            $key                  = substr($key, 16);
-            $this->$key           = $value;
+            $key        = substr($key, 16);
+            $this->$key = $value;
 
-            if (null === $this->objModel) {
+            if ($this->objModel === null) {
                 continue;
             }
 
