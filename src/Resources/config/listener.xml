@@ -8,10 +8,7 @@
       <argument type="service" id="request_stack"/>
       <argument type="service" id="contao.security.token_checker"/>
     </service>
-    <service id="Hofff\Contao\FormTools\EventListener\Hook\AddSuccessMessageListener" autoconfigure="true">
-      <argument type="service" id="request_stack"/>
-    </service>
-    <service id="Hofff\Contao\FormTools\EventListener\Hook\PrependFormMessagesListener" autoconfigure="true">
+    <service id="Hofff\Contao\FormTools\EventListener\Hook\InjectFormMessagesListener" autoconfigure="true">
       <argument type="service" id="request_stack"/>
     </service>
     <service id="Hofff\Contao\FormTools\EventListener\Hook\AddScrollToScriptListener" autoconfigure="true">

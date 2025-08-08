@@ -40,21 +40,21 @@
     "source": "https://github.com/hofff/contao-formtools"
   },
   "require": {
-    "php": "^8.1",
+    "php": "^8.2",
     "ext-json": "*",
-    "contao/core-bundle": "^4.13 || ^5.3",
-    "symfony/config": "^5.4 || ^6.4",
-    "symfony/dependency-injection": "^5.4 || ^6.4",
-    "symfony/http-foundation": "^5.4 || ^6.4",
-    "symfony/http-kernel": "^5.4 || ^6.4"
+    "contao/core-bundle": "^5.3",
+    "doctrine/dbal": "^3.9",
+    "symfony/config": "^6.4 || ^7.0",
+    "symfony/dependency-injection": "^6.4 || ^7.0",
+    "symfony/http-foundation": "^6.4 || ^7.0",
+    "symfony/http-kernel": "^6.4 || ^7.0"
   },
   "require-dev": {
-    "contao/manager-plugin": "^2.11",
-    "doctrine/coding-standard": "^12.0",
-    "phpcq/runner-bootstrap": "^1.0@dev"
+    "contao/manager-plugin": "^2.1",
+    "phpcq/runner-bootstrap": "@dev"
   },
   "conflict": {
-    "contao/manager-plugin": "<2.11 || >= 3.0"
+    "contao/manager-plugin": "<2.1 || >= 3.0"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
@@ -70,13 +70,14 @@
       "dealerdirect/phpcodesniffer-composer-installer": true,
       "php-http/discovery": true
     },
-    "preferred-install": "dist"
+    "preferred-install": "dist",
+    "sort-packages": true
   },
   "extra": {
     "branch-alias": {
-      "dev-develop": "3.3.x-dev",
-      "dev-master": "3.2.x-dev",
-      "dev-support/2.x": "2.0.x-dev"
+      "dev-develop": "4.1.x-dev",
+      "dev-master": "4.0.x-dev",
+      "dev-support/3.x": "3.3.x-dev"
     },
     "contao-manager-plugin": "Hofff\\Contao\\FormTools\\ContaoManager\\Plugin"
   }
