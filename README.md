@@ -6,7 +6,6 @@
 
 This extension provides some extended features for the Contao form generator.
 
-
 ## Features
 
 - in the content element or module "Form" you can overwrite the `jumpto` page
@@ -14,6 +13,14 @@ This extension provides some extended features for the Contao form generator.
 - in each form field you can add an optional help text (you have to customize the form field templates for the output)
 - add custom error/success message before form (useful when no page redirect is defined)
 - auto scroll to error element
+
+## Customize template
+
+To display the help texts, the templates of the form widgets must be adapted. The following output must be inserted there:
+
+```php
+<?= $this->hofff_formtools_help ?>
+```
 
 ## Compatibility
 
