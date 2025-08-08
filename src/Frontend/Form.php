@@ -37,6 +37,11 @@ class Form extends ContaoForm
 
             $key                  = substr($key, 16);
             $this->$key           = $value;
+
+            if (null === $this->objModel) {
+                continue;
+            }
+
             $this->objModel->$key = $value;
         }
     }
