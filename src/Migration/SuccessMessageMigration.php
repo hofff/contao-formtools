@@ -46,9 +46,9 @@ final class SuccessMessageMigration extends AbstractMigration
     {
         $sql = <<<'SQL'
 UPDATE tl_form 
-   SET confirmation = hofff_formtools_success
+   SET confirmation = hofff_formtools_success, hofff_formtools_addSuccess = ''
  WHERE confirmation IS NULL 
-   AND hofff_formtools_addSuccess=1
+   AND hofff_formtools_addSuccess='1'
 SQL;
 
         $this->connection->executeQuery($sql);
