@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Session\Session;
 
 use function implode;
-use function str_replace;
+use function preg_replace;
 
 final class InjectFormMessagesListener
 {
@@ -33,9 +33,9 @@ final class InjectFormMessagesListener
             return $buffer;
         }
 
-        return str_replace(
-            '<div class="formbody">',
-            implode("\n", $errors) . "\n" . '<div class="formbody">',
+        return (string) preg_replace(
+            '/<div\s+class="[^"]*formbody[^"]*">/i',
+            implode("\n", $errors) . "\n" . '$0',
             $buffer,
         );
     }
@@ -57,9 +57,9 @@ final class InjectFormMessagesListener
             return $buffer;
         }
 
-        return str_replace(
-            '<div class="formbody">',
-            implode("\n", $errors) . "\n" . '<div class="formbody">',
+        return (string) preg_replace(
+            '/<div\s+class="[^"]*formbody[^"]*">/i',
+            implode("\n", $errors) . "\n" . '$0',
             $buffer,
         );
     }
